@@ -14,7 +14,7 @@ const EditBook = () => {
     const { id } = useParams();
 
     useEffect(() => {
-      axios.get(`http://localhost:5555/books/${id}`)
+      axios.get(`${import.meta.env.VITE_API_URL}/books/${id}`)
       .then(response => {
         setAuthor(response.data.author)
         setPublishYear(response.data.publishYear)
@@ -36,7 +36,7 @@ const EditBook = () => {
             publishYear
         }
         setLoading(true);
-        axios.put(`http://localhost:5555/books/${id}`, data)
+        axios.put(`${import.meta.env.VITE_API_URL}/books/${id}`, data)
         .then(() => {
             setLoading(false)
             navigate('/')

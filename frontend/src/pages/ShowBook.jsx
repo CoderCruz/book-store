@@ -11,7 +11,7 @@ const ShowBook = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5555/books/${id}`)
+            .get(`${import.meta.env.VITE_API_URL}/books/${id}`)
             .then((response) => {
                 setBook(response.data)
                 setLoading(false)

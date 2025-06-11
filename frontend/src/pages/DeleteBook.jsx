@@ -15,7 +15,7 @@ const DeleteBook = () => {
 
   useEffect(() => {
     setLoading(true)
-    axios.get(`http://localhost:5555/books/${id}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/books/${id}`)
     .then(response => {
       setTitle(response.data.title)
       setAuthor(response.data.author)
@@ -26,7 +26,7 @@ const DeleteBook = () => {
 
   const handleDeleteBook = () => {
     setLoading(true)
-    axios.delete(`http://localhost:5555/books/${id}`)
+    axios.delete(`${import.meta.env.VITE_API_URL}/books/${id}`)
     .then(response => {
       console.log(response)
       setLoading(false)

@@ -19,6 +19,12 @@ app.get("/", (request, response) => {
 
 app.use("/books", booksRoute);
 
+app.use(
+  cors({
+    origin: "https://book-store-teal-sigma.vercel.app",
+  }),
+);
+
 mongoose
   .connect(process.env.MONGODBURL)
   .then(() => {

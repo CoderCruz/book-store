@@ -14,7 +14,7 @@ const Home = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get('http://localhost:5555/books')
+            .get(`${import.meta.env.VITE_API_URL}/books/`)
             .then((response) => {
                 console.log('API response:', response); // Debugging line
                 setBooks(response.data.data);
